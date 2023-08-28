@@ -4,7 +4,7 @@ const childProcess = require("child_process");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const apiMocker = require("connect-api-mocker");
+//const apiMocker = require("connect-api-mocker");
 const mode = process.env.NODE_ENV || "development";
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -12,22 +12,24 @@ const TerserPlugin = require("terser-webpack-plugin");
 module.exports = {
   mode,
   entry: {
-    main: "./src/app.js",
-    math: "./src/math.js"
+    main: "./src/app.js"
   },
   output: {
     filename: "[name].js",
     path: path.resolve("./dist")
+    // publicPath: "/js/"
   },
   resolve: {
-    extensions: [".js", ".scss"]
+    extensions: [".js", ".css"]
   },
   devServer: {
+    port: 8080,
     overlay: true,
     stats: "errors-only",
-    before: app => {
-      app.use(apiMocker("/api", "mocks/api"));
-    },
+    // contentBase: path.resolve("./dist"),
+    // before: app => {
+    //   app.use(apiMocker("/api", "mocks/api"));
+    // },
     hot: true
   },
   optimization: {
@@ -51,13 +53,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.css$/i,
         use: [
           process.env.NODE_ENV === "production"
             ? MiniCssExtractPlugin.loader
             : "style-loader",
-          "css-loader",
-          "sass-loader"
+          "css-loader"
         ]
       },
       {
@@ -106,6 +107,7 @@ module.exports = {
       templateParameters: {
         env: process.env.NODE_ENV === "development" ? "(dev)" : ""
       },
+      hash: true,
       minify:
         process.env.NODE_ENV === "production"
           ? {
