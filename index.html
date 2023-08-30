@@ -33,43 +33,243 @@
 
   <!-- RESET CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" type="text/html" href="./main.css">
 
-  <!-- GSAP & ScrollToPlugin -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js" integrity="sha512-tQFq+nb/TSS648SDzWbSj0A67t4I1PFzR0U6Oi/yEYFyUbAIwg74SOCbr7t2X1Rn+iln7sYwfh8y+z7p0gddOw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-
-  <!-- Lodash -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-
-  <!-- SWIPER -->
-  <!-- <link rel="stylesheet" href="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.css" />
-  <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script> -->
+  <script src="https://assets.codepen.io/16327/SplitText3.min.js"></script>
 
   <!-- ScrollMagic -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
   <!-- HEADER -->
-  <header class="header"></header>
+  <header class="header" id="header">
+  </header>
+  <!-- <div class="dot"></div> -->
 
   <main class="main">
 
     <!-- VISUAL -->
     <section class="visual">
-      <div class="inner">
+      <div class="inner layout-flex">
+        <article class="loop_container">
+          <div class="loop_wrap">
+            <span class="loop_text">i do what  i like</span>
+          </div>
+          <div class="loop_wrap loop_wrap_right">
+            <span class="loop_text">i do what  i like</span>
+          </div>
+        </article>
         <div class="visual__content">
-          <figure>
+          <h2 class="visual__title title-ani">portfolio</h2>
+          <div class="visual__image fade-in">
             <img src="./src/images/vs-main.png" alt="메인이미지">
-            <figcaption>
-              <span>Markup Developer based in Korea</span>
-            </figcaption>
-          </figure>
+          </div>
+          <span class="visual-sub__caption">Markup Developer based in Korea</span>
         </div>
       </div>
     </section>
-  </main>
 
+    <!-- ABOUT -->
+    <section class="about">
+      <div class="inner">
+        <h3 class="about__title">About</h3>
+        <p id="quote" class="about__paragraph">
+          <span class="about__sub-title">안녕하세요. <span class="sub-color">웹 퍼블리셔 배하은</span>입니다</span>
+          전 기본에 충실하면서도 사용자의 눈길을 끌수 있는 웹을 만드는걸 좋아합니다.<br/>웹표준, 웹접근성, 시멘틱 마크업을 준수하며, 서로를 존중할 줄 알고,<br/>원활한 의사소통을 위해 디자인부터 개발 전반적인 공부를 해보며,<br/> 서로의 입장차이를 이해해보려 노력하고 있습니다.
+        </p>
+
+        <a href="javascript:;" class="btn--more">view more</a>
+      </div>
+      
+      <article class="loop_container">
+        <ul class="about-skill__container loop_wrap-skill ">
+          <li class="skill-item">
+            <img src="./src/images/ab-skill-1.png" alt="HTML">
+          </li>
+          <li class="skill-item">
+            <img src="./src/images/ab-skill-2.png" alt="CSS">
+          </li>
+          <li class="skill-item">
+            <img src="./src/images/ab-skill-3.png" alt="JavaScript">
+          </li>
+          <li class="skill-item">
+            <img src="./src/images/ab-skill-4.png" alt="SCSS">
+          </li>
+          <li class="skill-item">
+            <img src="./src/images/ab-skill-5.png" alt="bootstrap">
+          </li>
+          <li>
+            <img src="./src/images/ab-skill-6.png" alt="D3JS">
+          </li>
+          <li>
+            <img src="./src/images/ab-skill-7.png" alt="GSAP">
+          </li>
+          <li>
+            <img src="./src/images/ab-skill-8.png" alt="Webpack">
+          </li>
+          <li>
+            <img src="./src/images/ab-skill-9.png" alt="Git">
+          </li>
+          <li>
+            <img src="./src/images/ab-skill-10.png" alt="figma">
+          </li>
+          <li>
+            <img src="./src/images/ab-skill-11.png" alt="XD">
+          </li>
+          <li>
+            <img src="./src/images/ab-skill-12.png" alt="illustrator">
+          </li>
+          <li>
+            <img src="./src/images/ab-skill-13.png" alt="photoshop">
+          </li>
+        </ul>
+      </article>
+      
+    </section>
+
+    <!-- Work -->
+    <section class="work">
+      <div class="inner">
+        <h3 class="about__title">Work</h3>
+
+        <ul class="work__list">
+          <li>
+            <span>Delivery Service</span>
+            <a href="javascript:;"></a>
+          </li>
+          <li>
+            <span>Busking Platform</span>
+            <a href="javascript:;"></a>
+          </li>
+          <li>
+            <span>Job in meta</span>
+            <a href="javascript:;"></a>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- PERSONAL -->
+    <section class="personal">
+      <div class="inner">
+        <h3 class="about__title">Personal</h3>
+      
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="personal__image">
+                <img src="./src/images/thumb-img-1.png" alt="오늘의집">
+              </div>
+              <article class="personal__content">
+                <h4 class="proj-name">오늘의집</h4>
+                <ul class="use-skill">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>Json-server(mokup-server)</li>
+                </ul>
+                <p class="proj-discription">
+                  오늘의 집을 클론코딩 하였습니다
+                </p>
+                <a href="javascript:void(0)" class="btn">view more</a>
+              </article>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="personal__image">
+                <img src="./src/images/thumb-img-1.png" alt="오늘의집">
+              </div>
+              <article class="personal__content">
+                <h4 class="proj-name">오늘의집</h4>
+                <ul class="use-skill">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>Json-server(mokup-server)</li>
+                </ul>
+                <p class="proj-discription">
+                  오늘의 집을 클론코딩 하였습니다
+                </p>
+                <a href="javascript:void(0)" class="btn">view more</a>
+              </article>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="personal__image">
+                <img src="./src/images/thumb-img-1.png" alt="오늘의집">
+              </div>
+              <article class="personal__content">
+                <h4 class="proj-name">오늘의집</h4>
+                <ul class="use-skill">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>Json-server(mokup-server)</li>
+                </ul>
+                <p class="proj-discription">
+                  오늘의 집을 클론코딩 하였습니다
+                </p>
+                <a href="javascript:void(0)" class="btn">view more</a>
+              </article>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="personal__image">
+                <img src="./src/images/thumb-img-1.png" alt="오늘의집">
+              </div>
+              <article class="personal__content">
+                <h4 class="proj-name">오늘의집</h4>
+                <ul class="use-skill">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>Json-server(mokup-server)</li>
+                </ul>
+                <p class="proj-discription">
+                  오늘의 집을 클론코딩 하였습니다
+                </p>
+                <a href="javascript:void(0)" class="btn">view more</a>
+              </article>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="personal__image">
+                <img src="./src/images/thumb-img-1.png" alt="오늘의집">
+              </div>
+              <article class="personal__content">
+                <h4 class="proj-name">오늘의집</h4>
+                <ul class="use-skill">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>Json-server(mokup-server)</li>
+                </ul>
+                <p class="proj-discription">
+                  오늘의 집을 클론코딩 하였습니다
+                </p>
+                <a href="javascript:void(0)" class="btn">view more</a>
+              </article>
+            </div>
+
+        </div>
+      </div>
+    
+    <div class="swiper-pagination"></div>
+
+    <div class="swiper-prev">
+        <!-- <span class="material-icons">arrow_back</span> -->
+        <span class="material-symbols-outlined">keyboard_backspace</span>
+    </div>
+    <div class="swiper-next">
+        <span class="material-symbols-outlined">arrow_right_alt</span>
+    </div>
+  </div>
+    </section>
+  </main>
+  <div id="to-top">
+    <span class="material-symbols-outlined">arrow_upward</span>
+  </div>
   <!-- FOOTER -->
   <footer class="footer">
     

@@ -1,54 +1,94 @@
 import "./css/main.css";
 import gsap from "gsap";
-// import ScrollTrigger from "gsap/ScrollTrigger";
-// import Flip from "gsap/Flip";
-// import Draggable from "gsap/Draggable";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import "gsap/gsap-core";
+import ScrollToPlugin from "gsap/ScrollToPlugin";
+import Flip from "gsap/Flip";
+import Draggable from "gsap/Draggable";
+import { Timeline } from "gsap/gsap-core";
+import Swiper from "swiper";
+import "swiper/swiper-bundle.css";
+
 import header from "./components/header";
 import footer from "./components/footer";
+import _ from "lodash";
+import {
+  scrollToTop,
+  textMainEffect,
+  fadeInMainImg,
+  toTopEl,
+  // scrollShowHide,
+  aboutText
+} from "./js/common";
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin);
+// eslint-disable-next-line no-undef
+gsap.registerPlugin(SplitText);
+gsap.registerPlugin(Timeline);
+gsap.registerPlugin(Draggable);
+gsap.registerPlugin(Flip);
 
 document.addEventListener("DOMContentLoaded", () => {
   const headerEl = document.querySelector("header");
   const footerEl = document.querySelector("footer");
 
   headerEl.innerHTML = header.render();
+  textMainEffect();
+  fadeInMainImg();
+
   footerEl.innerHTML = footer.render();
 
   const footerCopy = document.querySelector(".copy-right");
   const thisYear = new Date().getFullYear();
   footerCopy.innerHTML = `(c) ${thisYear} Ha-eun`;
-
-  // gsap.to()... infinity and beyond!
-  // For more check out greensock.com
-  let device_width = window.innerWidth;
-  if (device_width > 576) {
-    let char_come = gsap.utils.toArray(".title-anim");
-
-    char_come.forEach(char_come => {
-      // eslint-disable-next-line no-undef
-      let split_char = new SplitText(char_come, {
-        type: "chars, words",
-        lineThreshold: 0.5
-      });
-      const tl2 = gsap.timeline({
-        scrollTrigger: {
-          trigger: char_come,
-          start: "top 90%",
-          end: "bottom 60%",
-          scrub: false,
-          markers: false,
-          toggleActions: "play none none none"
-        }
-      });
-      tl2.from(split_char.chars, {
-        duration: 0.8,
-        y: 70,
-        autoAlpha: 0,
-        stagger: 0.03
-      });
-    });
-  }
 });
 
-if (module.hot) {
-  console.log("핫모듈켜짐");
-}
+const scrollShowHide = () => {
+  console.log(window.scrollY);
+  if (window.scrollY > 500) {
+    //버튼보이기
+    gsap.to(toTopEl, 0.2, {
+      x: 0
+    });
+  } else if (window.scrollY < 500) {
+    //버튼숨기기
+    gsap.to(toTopEl, 0.2, {
+      x: 100
+    });
+  }
+};
+
+window.addEventListener("scroll", _.throttle(scrollShowHide, 300));
+window.addEventListener("scroll", () => {
+  const subColor = document.querySelector(".sub-color");
+  if (window.scrollY > 600 && window.innerHeight > 600) {
+    aboutText();
+    subColor.style.color = "#4870FF";
+  }
+});
+toTopEl.addEventListener("click", scrollToTop);
+
+// if (module.hot) {
+//   console.log("핫모듈켜짐");
+// }
+gsap.to(".visual .loop_wrap", {
+  xPercent: 80,
+  duration: 5,
+  repeat: 8,
+  ease: "none"
+});
+
+new Swiper(".personal .swiper-container", {
+  spaceBetween: 10,
+  centeredSlides: true,
+  loop: true,
+  pagination: {
+    el: ".personal .swiper-pagination",
+    clickable: true
+  },
+  navigation: {
+    prevEl: ".personal .swiper-prev",
+    nextEl: ".personal .swiper-next"
+  }
+});

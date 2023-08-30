@@ -3,7 +3,7 @@ const header = {
   render() {
     return `
     <div class="inner">
-      <h1 class="logo">
+      <h1 class="logo" id="logo">
         <a href="/">web portfolio</a>
       </h1>
 
